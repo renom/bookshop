@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('v1/genres', 'GenreController@index');
+Route::get('v1/genres/{id}', 'GenreController@show');
+Route::post('v1/genres', 'GenreController@store');
+Route::patch('v1/genres/{id}', 'GenreController@update');
+Route::delete('v1/genres/{id}', 'GenreController@delete');
