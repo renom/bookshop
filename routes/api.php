@@ -29,3 +29,9 @@ Route::get('v1/books/{id}', 'BookController@show');
 Route::post('v1/books', 'BookController@store');
 Route::patch('v1/books/{id}', 'BookController@update');
 Route::delete('v1/books/{id}', 'BookController@delete');
+// v1/shops
+Route::get('v1/shops', 'ShopController@index');
+Route::get('v1/shops/{id}', 'ShopController@show');
+Route::post('v1/shops', 'ShopController@store');
+Route::patch('v1/shops/{id}', 'ShopController@update');
+Route::delete('v1/shops/{id}', 'ShopController@delete');
