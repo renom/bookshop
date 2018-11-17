@@ -1,5 +1,28 @@
 <?php
 
+/**
+ * @OA\Info(
+ *     version="1.0.0",
+ *     title="Bookshop API",
+ *     description="Описание API сети книжных магазинов",
+ *     @OA\Contact(name="Nikita Boldasov", email="renom@list.ru"),
+ * )
+ *
+ * @OA\Schema(schema="id", type="integer", format="int32", minimum=0)
+ * @OA\Schema(schema="name", type="string", maxLength=45)
+ * @OA\Schema(schema="description", type="string", maxLength=255)
+ * @OA\Schema(schema="pages", type="integer", format="int32", minimum=0)
+ * @OA\Schema(schema="price", type="number", format="double", minimum=0)
+ * @OA\Schema(schema="address", type="string", maxLength=255)
+ * @OA\Schema(schema="created_at", type="string", format="date-time")
+ * @OA\Schema(schema="updated_at", type="string", format="date-time")
+ * @OA\Schema(schema="page", type="integer", format="int32", minimum=0)
+ * @OA\Parameter(name="page", in="query", description="Номер страницы (по умолчанию 1)", @OA\Schema(ref="#/components/schemas/page"))
+ * @OA\Parameter(name="genreId", in="path", required=true, description="Идентификатор жанра", @OA\Schema(ref="#/components/schemas/id"))
+ * @OA\Parameter(name="bookId", in="path", required=true, description="Идентификатор книги", @OA\Schema(ref="#/components/schemas/id"))
+ * @OA\Parameter(name="shopId", in="path", required=true, description="Идентификатор магазина", @OA\Schema(ref="#/components/schemas/id"))
+ */
+
 return [
 
     /*
