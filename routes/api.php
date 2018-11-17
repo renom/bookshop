@@ -35,3 +35,8 @@ Route::get('v1/shops/{id}', 'ShopsController@show');
 Route::post('v1/shops', 'ShopsController@store');
 Route::patch('v1/shops/{id}', 'ShopsController@update');
 Route::delete('v1/shops/{id}', 'ShopsController@delete');
+// v1/shops/{shopId}/books
+Route::get('v1/shops/{shopId}/books', 'ShopBooksController@index');
+Route::get('v1/shops/{shopId}/books/{id}', 'ShopBooksController@show');
+Route::post('v1/shops/{shopId}/books/{id}', 'ShopBooksController@link');
+Route::delete('v1/shops/{shopId}/books/{id}', 'ShopBooksController@unlink');
