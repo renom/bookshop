@@ -17,8 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// v1/genres
 Route::get('v1/genres', 'GenreController@index');
 Route::get('v1/genres/{id}', 'GenreController@show');
 Route::post('v1/genres', 'GenreController@store');
 Route::patch('v1/genres/{id}', 'GenreController@update');
 Route::delete('v1/genres/{id}', 'GenreController@delete');
+// v1/books
+Route::get('v1/books', 'BookController@index');
+Route::get('v1/books/{id}', 'BookController@show');
+Route::post('v1/books', 'BookController@store');
+Route::patch('v1/books/{id}', 'BookController@update');
+Route::delete('v1/books/{id}', 'BookController@delete');
