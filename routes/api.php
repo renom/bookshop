@@ -18,20 +18,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // v1/genres
-Route::get('v1/genres', 'GenreController@index');
-Route::get('v1/genres/{id}', 'GenreController@show');
-Route::post('v1/genres', 'GenreController@store');
-Route::patch('v1/genres/{id}', 'GenreController@update');
-Route::delete('v1/genres/{id}', 'GenreController@delete');
+Route::get('v1/genres', 'GenresController@index');
+Route::get('v1/genres/{id}', 'GenresController@show');
+Route::post('v1/genres', 'GenresController@store');
+Route::patch('v1/genres/{id}', 'GenresController@update');
+Route::delete('v1/genres/{id}', 'GenresController@delete');
 // v1/books
-Route::get('v1/books', 'BookController@index');
-Route::get('v1/books/{id}', 'BookController@show');
-Route::post('v1/books', 'BookController@store');
-Route::patch('v1/books/{id}', 'BookController@update');
-Route::delete('v1/books/{id}', 'BookController@delete');
+Route::get('v1/books', 'BooksController@index');
+Route::get('v1/books/{id}', 'BooksController@show');
+Route::post('v1/books', 'BooksController@store');
+Route::patch('v1/books/{id}', 'BooksController@update');
+Route::delete('v1/books/{id}', 'BooksController@delete');
 // v1/shops
-Route::get('v1/shops', 'ShopController@index');
-Route::get('v1/shops/{id}', 'ShopController@show');
-Route::post('v1/shops', 'ShopController@store');
-Route::patch('v1/shops/{id}', 'ShopController@update');
-Route::delete('v1/shops/{id}', 'ShopController@delete');
+Route::get('v1/shops', 'ShopsController@index');
+Route::get('v1/shops/{id}', 'ShopsController@show');
+Route::post('v1/shops', 'ShopsController@store');
+Route::patch('v1/shops/{id}', 'ShopsController@update');
+Route::delete('v1/shops/{id}', 'ShopsController@delete');

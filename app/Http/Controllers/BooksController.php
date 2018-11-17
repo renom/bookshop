@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Shop;
+use App\Book;
 
-class ShopController extends Controller
+class BooksController extends Controller
 {
     public function index()
     {
-        return Shop::paginate();
+        return Book::paginate();
     }
 
     public function show($id)
     {
-        return Shop::find($id);
+        return Book::find($id);
     }
 
     public function store(Request $request)
@@ -24,14 +24,17 @@ class ShopController extends Controller
 
         $validator = Validator::make($data, [
             'name' => 'required|max:45',
-            'address' => 'required|max:255',
+            'description' => 'required|max:255',
+            'pages' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0',
+            'genre_id' => 'required|integer|min:0|exists:genres,id',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        return Shop::create($data);
+        return Book::create($data);
     }
 
     public function update(Request $request, $id)
@@ -40,23 +43,26 @@ class ShopController extends Controller
         
         $validator = Validator::make($data, [
             'name' => 'max:45',
-            'address' => 'max:255',
+            'description' => 'max:255',
+            'pages' => 'integer|min:0',
+            'price' => 'numeric|min:0',
+            'genre_id' => 'integer|min:0|exists:genres,id',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        $shop = Shop::findOrFail($id);
-        $shop->update($data);
+        $book = Book::findOrFail($id);
+        $book->update($data);
 
-        return $shop;
+        return $book;
     }
 
     public function delete(Request $request, $id)
     {
-        $shop = Shop::findOrFail($id);
-        $shop->delete();
+        $book = Book::findOrFail($id);
+        $book->delete();
 
         return response('', 204);
     }

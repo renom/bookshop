@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Book;
+use App\Shop;
 
-class BookController extends Controller
+class ShopsController extends Controller
 {
     public function index()
     {
-        return Book::paginate();
+        return Shop::paginate();
     }
 
     public function show($id)
     {
-        return Book::find($id);
+        return Shop::find($id);
     }
 
     public function store(Request $request)
@@ -24,17 +24,14 @@ class BookController extends Controller
 
         $validator = Validator::make($data, [
             'name' => 'required|max:45',
-            'description' => 'required|max:255',
-            'pages' => 'required|integer|min:0',
-            'price' => 'required|numeric|min:0',
-            'genre_id' => 'required|integer|min:0|exists:genres,id',
+            'address' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        return Book::create($data);
+        return Shop::create($data);
     }
 
     public function update(Request $request, $id)
@@ -43,26 +40,23 @@ class BookController extends Controller
         
         $validator = Validator::make($data, [
             'name' => 'max:45',
-            'description' => 'max:255',
-            'pages' => 'integer|min:0',
-            'price' => 'numeric|min:0',
-            'genre_id' => 'integer|min:0|exists:genres,id',
+            'address' => 'max:255',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        $book = Book::findOrFail($id);
-        $book->update($data);
+        $shop = Shop::findOrFail($id);
+        $shop->update($data);
 
-        return $book;
+        return $shop;
     }
 
     public function delete(Request $request, $id)
     {
-        $book = Book::findOrFail($id);
-        $book->delete();
+        $shop = Shop::findOrFail($id);
+        $shop->delete();
 
         return response('', 204);
     }

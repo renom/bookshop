@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Genre;
 
-class GenreController extends Controller
+class GenresController extends Controller
 {
     public function index()
     {
