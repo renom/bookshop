@@ -29,7 +29,7 @@ class ShopBooksController extends Controller
             $direction = 'asc';
         }
 
-        return Shop::findOrFail($shopId)->books()->orderBy($column, $direction)->paginate();
+        return Shop::findOrFail($shopId)->books()->orderBy($column, $direction)->paginate()->getCollection();
     }
 
     public function show($shopId, $id)

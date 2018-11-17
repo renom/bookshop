@@ -10,7 +10,7 @@ class ShopsController extends Controller
 {
     public function index()
     {
-        return Shop::paginate();
+        return Shop::paginate()->getCollection();
     }
 
     public function show($id)

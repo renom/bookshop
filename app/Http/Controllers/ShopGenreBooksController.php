@@ -14,7 +14,7 @@ class ShopGenreBooksController extends Controller
             return response()->json(['message' => 'The specified jenre doesn\'t exist'], 500);
         }
 
-        return $shop->books()->where('genre_id', $genreId)->paginate();
+        return $shop->books()->where('genre_id', $genreId)->paginate()->getCollection();
     }
 
     public function show($shopId, $genreId, $id)

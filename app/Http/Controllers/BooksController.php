@@ -10,7 +10,7 @@ class BooksController extends Controller
 {
     public function index()
     {
-        return Book::paginate();
+        return Book::paginate()->getCollection();
     }
 
     public function show($id)

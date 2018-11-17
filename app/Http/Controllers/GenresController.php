@@ -10,7 +10,7 @@ class GenresController extends Controller
 {
     public function index()
     {
-        return Genre::paginate();
+        return Genre::paginate()->getCollection();
     }
 
     public function show($id)
