@@ -15,6 +15,6 @@ class Book extends Model
 
     public function shops()
     {
-        return $this->belongsToMany('App\Shops')->withTimestamps();
+        return $this->belongsToMany('App\Shop')->withTimestamps();
     }
 }
