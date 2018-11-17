@@ -40,3 +40,6 @@ Route::get('v1/shops/{shopId}/books', 'ShopBooksController@index');
 Route::get('v1/shops/{shopId}/books/{id}', 'ShopBooksController@show');
 Route::post('v1/shops/{shopId}/books/{id}', 'ShopBooksController@link');
 Route::delete('v1/shops/{shopId}/books/{id}', 'ShopBooksController@unlink');
+// v1/shops/{shopId}/genres/{genreId}/books
+Route::get('v1/shops/{shopId}/genres/{genreId}/books', 'ShopGenreBooksController@index');
+Route::get('v1/shops/{shopId}/genres/{genreId}/books/{id}', 'ShopGenreBooksController@show');
